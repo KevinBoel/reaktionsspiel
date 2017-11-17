@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Reaktionsspiel</title>
+  </head>
+  <style media="screen">
+    #shape{
+      position: absolute;
+    }
+  </style>
+  <body>
+
+    <h1>Vergiss all deine Andere Spiele, hier kommt das ultimative Reaktionsspiel.</h1>
+       <h2><div id="time"></div></h2>
+       <div id="figure"></div>
+
+
+<div id="shape"></div>
+
+<p id="text">Klick so schnell auf die Figuren wie du kannst, wenn du dich traust..!</p>
+
+<script type="text/javascript">
+var figure = document.getElementById("shape");
+
+
+
+function  getRandomInt(min, max) {
+    var randomInt = Math.floor(Math.random()*(max-min+1)+min)
+    return randomInt;
+}
+
+function showFigure() {
+    var size = getRandomInt(100,400);
+    var left = getRandomInt (0 , window.innerWidth - size);
+    var top = getRandomInt (100 , window.innerHeight - size);
+
+    //Farbe
+    var randR = getRandomInt(0,255);
+    var randG = getRandomInt(0,255);
+    var randB = getRandomInt(0,255);
+    var radius = getRandomInt(0,1)*50;
+
+
+
+    figure.style.width = size+"px";
+    figure.style.height = size+"px";
+
+    figure.style.top = top+"px";
+    figure.style.left = left+"px";
+
+    figure.style.background = "rgb(" + randR + "," + randG + "," + randB + ")";
+
+    figure.style.borderRadius = radius + "%";
+
+    figure.style.display = "block";
+    start = new Date().getTime();
+
+
+}
+showFigure();
+
+figure.onclick = function () {
+  showFigure();
+
+}
+
+function delay(){
+  setTimeout(showFigure, Math.random() * 1000);
+}
+
+delay();
+
+
+figure.onclick = function(){
+
+  var ende = new Date().getTime();
+  var dauer = (ende - start) / 1000;
+  figure.style.display = "none";
+
+  document.getElementById("time").innerHTML = "Deine Zeit: " +dauer;
+
+  delay();
+
+}
+
+
+</script>
+
+  </body>
+</html>
+
+
+
+<!--
+1)Größe als Zufallszahl produzieren (randomInteger)
+
+ var size = getRandomInt(100, 300);
+ var figure = document.getElementById("figure");
+ figure.style.with = size;
+ figure.style.height = size +"px";
+
+2)Positioniert über zufallszahlen
+3)Zufallszahl die den border-radius
+4)zufällige farbe erstellen
+5)funktion welche die Figur zusammensetzt
+6)Figuren anzeigen (generate figure)
+
+Folien/Sachen die man brauch:
+Funktionen =Ja
+Arrays =Nein
+Variabel =ja
+onlick =ja
+style verändern =ja
+
+
+   var start = new Date() getTime();
+    va dauer = (end-start)/1000;
+   var end = new Date () getTime
+
+   figure.style.display="none";
+
+   Verzögerung via setTimeOut
+   --> 
