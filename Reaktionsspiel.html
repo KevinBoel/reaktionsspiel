@@ -5,11 +5,24 @@
     <title>Reaktionsspiel 2</title>
   </head>
   <style media="screen">
+  body{
+    background: url(Bilder/Scottland.jpg) no-repeat fixed;
+    background-size: cover;
+
+
+  }
     #shape{
       position: absolute;
+      background-position: center ;
+      background-repeat: no-repeat;
     }
+
+
   </style>
   <body>
+
+
+
 
 <h1>Vergiss all deine anderen Spiele, hier kommt das ultimative Reaktionsspiel.</h1>
        <h2><div id="time"></div></h2>
@@ -24,7 +37,6 @@
 var figure = document.getElementById("shape");
 
 
-
 function  getRandomInt(min, max) {
     var randomInt = Math.floor(Math.random()*(max-min+1)+min)
     return randomInt;
@@ -37,10 +49,10 @@ function showFigure() {
     var top = getRandomInt (100 , window.innerHeight - size);
 
     //Farbe
-    var randR = getRandomInt(0,255);
-    var randG = getRandomInt(0,255);
-    var randB = getRandomInt(0,255);
-    var radius = getRandomInt(0,1)*50;
+    // var randR = getRandomInt(0,255);
+    // var randG = getRandomInt(0,255);
+    // var randB = getRandomInt(0,255);
+    // var radius = getRandomInt(0,1)*50;
 
 
 
@@ -50,9 +62,11 @@ function showFigure() {
     figure.style.top = top+"px";
     figure.style.left = left+"px";
 
-    figure.style.background = "rgb(" + randR + "," + randG + "," + randB + ")";
+    var images =  ["Bilder/cardhu.png", "Bilder/dudelsack.png" , "Bilder/Schaf.png", "Bilder/Harry_Potter_Quidditch_Firebolt.png", "Bilder/l_horntail02a_cap_hpe4.png", "Bilder/loch_ness_monster.gif", "#", "#", "#", "#"];
+    figure.style.backgroundImage = "url("+images [getRandomInt(0, images.length-1)]+")";
+    figure.style.backgroundSize = "contain" ;
 
-    figure.style.borderRadius = radius + "%";
+    // figure.style.borderRadius = radius + "%";
 
     figure.style.display = "block";
     start = new Date().getTime();
@@ -84,7 +98,6 @@ figure.onclick = function(){
   delay();
 
 }
-
 
 </script>
 
