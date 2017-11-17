@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Reaktionsspiel</title>
+    <title>Reaktionsspiel 2</title>
   </head>
   <style media="screen">
     #shape{
@@ -11,7 +11,7 @@
   </style>
   <body>
 
-    <h1>Vergiss all deine Andere Spiele, hier kommt das ultimative Reaktionsspiel.</h1>
+<h1>Vergiss all deine anderen Spiele, hier kommt das ultimative Reaktionsspiel.</h1>
        <h2><div id="time"></div></h2>
        <div id="figure"></div>
 
@@ -30,8 +30,9 @@ function  getRandomInt(min, max) {
     return randomInt;
 }
 
+    //Begrenzung
 function showFigure() {
-    var size = getRandomInt(100,400);
+    var size = getRandomInt(50,300);
     var left = getRandomInt (0 , window.innerWidth - size);
     var top = getRandomInt (100 , window.innerHeight - size);
 
@@ -121,4 +122,4 @@ style verändern =ja
    figure.style.display="none";
 
    Verzögerung via setTimeOut
-   --> 
+   -->
